@@ -73,7 +73,7 @@
 
 .container5{
     font-family: "Outfit";
-    height: 200px;
+    height: 300px;
     color:  rgb(19, 19, 19);
     background-color: rgb(255, 115, 0);
     display: flex;
@@ -155,3 +155,15 @@ todo conteudo dentro igual)*/
 .receiver:hover .text_hover {
     opacity: 1;
 }
+
+.container6{
+    height: 100px;
+    color:  white;
+    background-color: rgb(19, 19, 19);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
