@@ -1,0 +1,30 @@
+.navBar{
+         
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    background-color: #302D2D;
+    
+}
+
+.container1{
+    background-color: #302D2D;
+    background-image: url(img/hinata_shoyo.jpeg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.citacao1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.citacao2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
