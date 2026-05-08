@@ -171,6 +171,23 @@ todo conteudo dentro igual)*/
 }
 
 /* LOGIN PAGE */
+.Body_Login{
+    background-image: url(img/bloqueio.webp);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .cardLogin{
-    
+    display: flex; 
+    flex-direction: column; 
+    justify-content: start;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 2%;
+    padding: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
