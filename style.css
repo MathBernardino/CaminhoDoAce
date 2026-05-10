@@ -192,3 +192,14 @@ todo conteudo dentro igual)*/
     margin: 10%;
     margin-right: 80%;
 }
+
+.btnEntrar {
+    background-color: black;
+    padding: 2%;
+}
+
+.ipts_login {
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
