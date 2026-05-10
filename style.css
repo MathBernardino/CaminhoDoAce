@@ -172,7 +172,8 @@ todo conteudo dentro igual)*/
 
 /* LOGIN PAGE */
 .Body_Login{
-    background-image: url(img/bloqueio.webp);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(img/bloqueio.webp);
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -183,11 +184,11 @@ todo conteudo dentro igual)*/
     display: flex; 
     flex-direction: column; 
     justify-content: start;
-    align-items: center;
-    background-color: black;
-    color: white;
+    background-color: rgb(19, 19, 19);
+    border: 2px solid orange;
+    color: orange;
     border-radius: 2%;
-    padding: 2%;
-    margin-left: 20%;
-    margin-right: 20%;
+    padding: 3%;
+    margin: 10%;
+    margin-right: 80%;
 }
