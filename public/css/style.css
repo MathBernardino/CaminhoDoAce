@@ -24,7 +24,7 @@
 
 .container1{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(img/quadra.webp);
+    url('../assets/img/quadra.webp');
     background-size: cover;
     background-position: center;
     height: 580px;
@@ -173,7 +173,7 @@ todo conteudo dentro igual)*/
 /* LOGIN PAGE */
 .Body_Login{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(img/bloqueio.webp);
+    url('../assets/img/bloqueio.webp');
     background-size: cover;
     display: flex;
     flex-direction: column;
