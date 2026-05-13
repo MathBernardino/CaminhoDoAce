@@ -170,7 +170,7 @@ todo conteudo dentro igual)*/
     justify-content: center;
 }
 
-/* CADASTRO PAGE */
+/* CADASTRO/LOGIN PAGE */
 .cadastro {
     display: flex;
     flex-direction: row;
@@ -179,7 +179,7 @@ todo conteudo dentro igual)*/
 }
 
 
-.cardLogin, .cardCadastro {
+.cardCadastro {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -189,6 +189,32 @@ todo conteudo dentro igual)*/
     min-width: 400px;
     padding: 26.5px 32px;
     z-index: 1;
+}
+
+.cardLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    color: rgb(255, 115, 0);
+    width: 500px;          
+    min-width: 400px;
+    padding: 138px 32px;
+    z-index: 1;
+}
+
+.background_login {
+    flex: 1;             
+    overflow: hidden;
+}
+
+.background_login {
+    flex: 1;
+    overflow: hidden;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url('../assets/img/voleiAreia.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .background_cadastro {

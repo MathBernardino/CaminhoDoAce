@@ -30,8 +30,8 @@
         <span id="mensagem_erro"></span>
       </div>
     </div>
-    <div class="cardLogin">
-      <h2>Bem-vindo!</h2>
+    <div class="cardCadastro">
+      <h2>Se junte a nós!</h2>
       <div class="formulario">
         <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
@@ -62,8 +62,7 @@
       </div>
 
     </div>
-    <div class="background_cadastro">
-    </div>
+    <div class="background_cadastro"></div>
   </div>
 
 </body>
@@ -95,6 +94,7 @@
       confirmacaoSenhaVar == "" ||
       codigoVar == ""
     ) {
+      cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 

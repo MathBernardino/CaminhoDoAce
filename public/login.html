@@ -17,57 +17,36 @@
 
 <body>
 
-    <!--Header-->
-
-    <!-- <div class="header">
-        <div class="container">
-            <!-- <h1 class="titulo"></h1> -->
-    <!-- <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
-    </div> -->
+    <div class="navBar">
+        <h1 style="margin-right: 60%">FLY HIGH</h1>
+        <h3 class="Login" style="margin-right: 5%;">Login</h3>
+        <h3 class="Started" style="margin-right: 5%;">Get Started</h3>
+    </div>
 
 
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
+    <div class="cardLogin">
+        <h2>Bem-vindo!</h2>
+        <div class="formulario">
+            
+            <div class="campos">
+                <span>E-mail:</span>
+                <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
             </div>
-        </div>
-
-        <div class="cardlogin">
-            <h2>Olá de volta!</h2>
-            <div class="cardCadastro">
-                <div class="campo">
-                    <span>E-mail:</span>
-                    <input id="email_input" type="text" placeholder="Login">
-                </div>
-                <div class="campo">
-                    <span>Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
-                </div>
-                <button class="botao" onclick="entrar()">Entrar</button>
+            <div class="campos">
+                <span>Senha:</span>
+                <input id="senha_input" type="password" placeholder="******" />
             </div>
 
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif">
-            </div>
+            <label style="color: white">Não possui conta? <a href="cadastro.html"><span class="destaque">Cadastre-se</span></a></label>
 
-            <div id="div_erros_login"></div>
+            <button class="btnEntrar" onclick="entrar()">Entrar</button>
+            <div id="div_erros_login" class="mensagem_erro"></div>
         </div>
+
+    </div>
+
+    <div class="background_login"></div>
+
     </div>
 
     <!--footer inicio-->
