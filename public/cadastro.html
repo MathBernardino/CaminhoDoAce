@@ -10,12 +10,12 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body onload="listar()" class="body_cadastro">
   <!--header inicio-->
   <div class="navBar">
         <h1 style="margin-right: 60%">FLY HIGH</h1>
@@ -24,48 +24,45 @@
     </div>
   <!--header fim-->
 
-  <div class="login">
+  <div class="cadastro">
     <div class="alerta_erro">
       <div class="card_erro" id="cardErro">
         <span id="mensagem_erro"></span>
       </div>
     </div>
-    <div class="container">
-      <div class="cardLogin">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
+    <div class="cardLogin">
+      <h2>Bem-vindo!</h2>
+      <div class="formulario">
+        <!--
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-          <div class="ipts_login">
-            <span>Código de Usuário:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="ipts_login">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="ipts_login">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="ipts_login">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="ipts_login">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="btnEntrar" onclick="cadastrar()">Cadastrar</button>
+        <div class="campos">
+          <span>Código de Usuário:</span>
+          <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+        <div class="campos">
+          <span>Nome:</span>
+          <input id="nome_input" type="text" placeholder="Seu nome" />
         </div>
-
-        <div id="div_erros_login"></div>
+        <div class="campos">
+          <span>E-mail:</span>
+          <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+        </div>
+        <div class="campos">
+          <span>Senha:</span>
+          <input id="senha_input" type="password" placeholder="******" />
+        </div>
+        <div class="campos">
+          <span>Confirmação da Senha:</span>
+          <input id="confirmacao_senha_input" type="password" placeholder="******" />
+        </div>
+        <button class="btnEntrar" onclick="cadastrar()">Cadastrar</button>
+        <div id="div_erros_login" class="mensagem_erro"></div>
       </div>
+
+    </div>
+    <div class="background_cadastro">
     </div>
   </div>
 
@@ -98,7 +95,6 @@
       confirmacaoSenhaVar == "" ||
       codigoVar == ""
     ) {
-      cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)";
 
