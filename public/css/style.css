@@ -171,13 +171,12 @@ todo conteudo dentro igual)*/
 }
 
 /* CADASTRO/LOGIN PAGE */
-.cadastro {
+.cadastro, .login {
     display: flex;
     flex-direction: row;
     min-height: 100%;
     width: 100%;
 }
-
 
 .cardCadastro {
     display: flex;
@@ -203,26 +202,8 @@ todo conteudo dentro igual)*/
     z-index: 1;
 }
 
-.background_login {
-    flex: 1;             
-    overflow: hidden;
-}
 
-.background_login {
-    flex: 1;
-    overflow: hidden;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url('../assets/img/voleiAreia.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.background_cadastro {
-    flex: 1;             
-    overflow: hidden;
-}
-
-.background_cadastro {
+.background_cadastro, .background_login{
     flex: 1;
     overflow: hidden;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
