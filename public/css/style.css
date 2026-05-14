@@ -258,3 +258,12 @@ todo conteudo dentro igual)*/
 .btnEntrar:hover {
     background-color: darkorange;
 }
+
+/* CONTEXTO PAGE */
+.container_contexto {
+    font-family: 'Outfit';
+    background-color: rgb(19, 19, 19);
+    color: white;
+    border-color: rgb(255, 115, 0);
+
+}
