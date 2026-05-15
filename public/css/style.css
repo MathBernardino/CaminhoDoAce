@@ -324,3 +324,80 @@ todo conteudo dentro igual)*/
     background-color: rgb(19, 19, 19);
     color: white;
 }
+
+.carrossel {
+    position: relative;
+    width: 85%;
+    max-width: 1100px;
+    margin: 50px auto;
+    background-color: rgb(19, 19, 19);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 115, 0, 0.25);
+}
+
+.slide {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 40px;
+}
+
+.slide.ativo {
+    display: flex;
+}
+
+.slide img {
+    width: 40%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center; 
+    border-radius: 15px;
+    flex-shrink: 0;
+}
+
+.texto-slide {
+    color: white;
+    font-family: "Outfit";
+}
+
+.texto-slide p {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.idolos {
+    color: rgb(255, 115, 0);
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.btn-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgb(255, 115, 0);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.btn-carrossel:hover {
+    background-color: rgb(255, 115, 0);
+    color: white;
+}
+
+.btn-esquerda {
+    left: -40px;
+}
+
+.btn-direita {
+    right: -40px;
+}
