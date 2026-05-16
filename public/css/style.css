@@ -325,6 +325,10 @@ todo conteudo dentro igual)*/
     color: white;
 }
 
+.body_container{
+    background-color: rgb(15, 15, 15);
+}
+
 .carrossel {
     position: relative;
     width: 85%;
@@ -400,4 +404,32 @@ todo conteudo dentro igual)*/
 
 .btn-direita {
     right: -40px;
+}
+
+/* TutorialPage */
+.introducao{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-family: 'Outfit';
+    background-color: rgb(15, 15, 15);
+}
+
+.introducao{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.introducao_text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.introducao_img img {
+    border-radius: 3px;
+    box-shadow: 0 0 25px rgba(255, 115, 0, 0.25);
 }
