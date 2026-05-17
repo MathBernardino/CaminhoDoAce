@@ -6,18 +6,35 @@
     box-sizing: border-box;
 }
 
-.navBar{ 
+.navBar {
+    padding: 15px;
     font-family: "Outfit";
     color: rgb(255, 115, 0);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between; 
     background-color: rgb(19, 19, 19);
     height: 80px;
 }
 
-.Login:hover, .Started:hover{
+.nav_Bar_h3 {
+    display: flex;
+    flex-direction: row;
+    gap: 40px; 
+}
+
+.navBar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.navBar h3:hover {
+    color: white;
+}
+
+.navBar h1:hover {
     color: white;
 }
 

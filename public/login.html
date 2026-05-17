@@ -18,44 +18,40 @@
 <body class="Body_Login">
 
     <div class="navBar">
-        <h1 style="margin-right: 60%">FLY HIGH</h1>
-        <h3 class="Login" style="margin-right: 5%;">Login</h3>
-        <h3 class="Started" style="margin-right: 5%;">Get Started</h3>
+        <div class="navBar_FLY">
+            <a href="index.html"><h1>FLY HIGH</h1></a>
+        </div>
+
+        <div class="nav_Bar_h3">
+            <h3>Calculador</h3>
+            <a href="contexto.html"><h3>Contexto</h3></a>
+            <h3>Quiz</h3>
+        </div>
     </div>
 
     <body>
-    <div class="login">                        
-        <div class="cardLogin">
-            <h2>Bem-vindo!</h2>
-            <div class="formulario">
-                <div class="campos">
-                    <span>E-mail:</span>
-                    <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+        <div class="login">
+            <div class="cardLogin">
+                <h2>Bem-vindo!</h2>
+                <div class="formulario">
+                    <div class="campos">
+                        <span>E-mail:</span>
+                        <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+                    </div>
+                    <div class="campos">
+                        <span>Senha:</span>
+                        <input id="senha_input" type="password" placeholder="******" />
+                    </div>
+                    <label style="color: white">Não possui conta? <a href="cadastro.html" style="text-decoration: none; color: inherit;"><span class="destaque">Cadastre-se</span></a></label>
+                    <button class="btnEntrar" onclick="entrar()">Entrar</button>
+                    <div id="div_erros_login" class="mensagem_erro"></div>
                 </div>
-                <div class="campos">
-                    <span>Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******" />
-                </div>
-                <label style="color: white">Não possui conta? <a href="cadastro.html"><span
-                            class="destaque">Cadastre-se</span></a></label>
-                <button class="btnEntrar" onclick="entrar()">Entrar</button>
-                <div id="div_erros_login" class="mensagem_erro"></div>
             </div>
+            <div class="background_login"></div>
         </div>
-        <div class="background_login"></div>   
-    </div>
 
 
-    <!--footer inicio-->
-    <!-- <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div> -->
-    <!--footer fim-->
-
-</body>
+    </body>
 
 </html>
 
