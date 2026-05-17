@@ -40,30 +40,39 @@
 
     <div class="posicoes">
         <div class="descricao_levantador">
-            <h1>Levantador: O Maestro Silencioso</h1>
+            <h1>Levantador: O Maestro Silencioso</h1><br><br>
             <p>
                 Se o vôlei fosse uma orquestra, o levantador seria o maestro; se fosse uma guerra, ele seria o
-                estrategista.<br>
+                estrategista.<br><br>
+
                 Ele é o único jogador que toca na bola em quase todas as jogadas, mas raramente para buscar a glória do
                 ponto. Sua missão é a mais altruísta do esporte: transformar o suor alheio em arte.<br><br>
 
-                O levantador vive sob uma pressão invisível. Quando o passe vem quebrado, torto ou desesperado, é dele a
-                responsabilidade de consertar o mundo em uma fração de segundo.<br>
-                Um bom levantador não apenas distribui o jogo; ele flerta com o impossível, deixando o atacante livre, sem
+                Um bom levantador não apenas distribui o jogo; ele flerta com o impossível, deixando o atacante livre,
+                sem
                 bloqueio, pronto para soltar o braço.
             </p>
-
-            
         </div>
 
-    
+        <div class="slide ativo">
+            <img src="assets/img/Setter_1.webp">
+        </div>
+        <div class="slide">
+            <img src="assets/img/Setter_2.jpeg">
+        </div>
+        <div class="slide">
+            <img src="assets/img/Setter_3.jpeg">
+        </div>
+    </div>
 
+    <div class="posicoes">
         <div class="descricao_libero">
             <h1>Líbero: O Anjo da Guarda</h1>
             <p>
                 O líbero veste uma armadura de cor diferente porque o seu fardo também é diferente. Ele não ataca, ele
                 não
-                saca, ele não bloqueia. Ele não conhece a sensação de cravar uma bola no chão do adversário. A sua vida é
+                saca, ele não bloqueia. Ele não conhece a sensação de cravar uma bola no chão do adversário. A sua vida
+                é
                 definida por uma única e implacável missão: não deixar a bola cair<br><br>
 
                 Enquanto todos olham para a rede, o líbero olha para o perigo.<br>
@@ -77,7 +86,19 @@
             </p>
         </div>
 
-        <div class="descricao_libero">
+        <div class="slide ativo">
+            <img src="assets/img/Libero_1.jpeg">
+        </div>
+        <div class="slide">
+            <img src="assets/img/Libero_2.webp">
+        </div>
+        <div class="slide">
+            <img src="assets/img/Libero_3.jpeg">
+        </div>
+    </div>
+
+    <div class="posicoes">
+        <div class="descricao_ACE">
             <h1>ACE: O Destruidor e o Salvador</h1>
             <p>
                 O "ACE" aqui personifica os grandes pontuadores, os homens e mulheres de extremidade que carregam o peso
@@ -100,8 +121,38 @@
                 alívio, a explosão da torcida e a glória do ponto que fecha o jogo.
             </p>
         </div>
+
+        <div class="slide ativo">
+            <img src="assets/img/ACE_1.webp">
+        </div>
+        <div class="slide">
+            <img src="assets/img/ACE_2.jpeg">
+        </div>
+        <div class="slide">
+            <img src="assets/img/ACE_3.webp">
+        </div>
     </div>
 
 </body>
+<script>
+    const carrosseis = document.querySelectorAll(".posicoes");
+
+carrosseis.forEach((carrossel) => {
+    const slides = carrossel.querySelectorAll(".slide");
+    let indice = 0;
+
+    function mostrarSlide() {
+        slides.forEach(slide => slide.classList.remove("ativo"));
+        slides[indice].classList.add("ativo");
+    }
+
+    setInterval(() => {
+        indice = (indice + 1) % slides.length;
+        mostrarSlide();
+    }, 2000);
+
+    mostrarSlide();
+});
+</script>
 
 </html>
