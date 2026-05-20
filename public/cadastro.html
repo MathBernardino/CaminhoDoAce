@@ -44,10 +44,6 @@
                          Assim que inserir vá para o script abaixo.
                      -->
         <div class="campos">
-          <span>Código de Usuário:</span>
-          <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-        </div>
-        <div class="campos">
           <span>Nome:</span>
           <input id="nome_input" type="text" placeholder="Seu nome" />
         </div>
@@ -96,7 +92,7 @@
       nomeVar == "" ||
       emailVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
