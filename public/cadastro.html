@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()" class="body_cadastro">
+<body class="body_cadastro">
   <!--header inicio-->
     <div class="navBar">
         <div class="navBar_FLY">
@@ -59,6 +59,7 @@
           <span>Confirmação da Senha:</span>
           <input id="confirmacao_senha_input" type="password" placeholder="******" />
         </div>
+        <label style="color: white">Já possui conta?<a href="login.html" style="text-decoration: none; color: inherit;"><span class="destaque">Entrar</span></a></label>
         <button class="btnEntrar" onclick="cadastrar()">Cadastrar</button>
         <div id="div_erros_login" class="mensagem_erro"></div>
       </div>

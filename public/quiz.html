@@ -14,9 +14,12 @@
 </head>
 
 <body>
+
     <div class="navBar">
         <div class="navBar_FLY">
-            <h1>FLY HIGH</h1>
+            <a href="index.html">
+                <h1>FLY HIGH</h1>
+            </a>
         </div>
 
         <div class="nav_Bar_h3">
@@ -26,233 +29,229 @@
             </a>
             <h3>Quiz</h3>
         </div>
+
     </div>
 
-    <div class="quiz-card">
-        <div id="introducao_quiz" style="display: block;">
-            <h2>Um quiz para ajudar você a descobrir sua melhor arma!</h2>
-            <button onclick="IniciarQuiz()">Inciar Quiz!</button>
-        </div>
+    <div id="jogo" class="questao_estrutura">
 
-        <div id="perguntas_quiz" style="display: none;">
+        <div id="infoQuestao" class="questao_enunciado">
             <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de 10 questões.</span>
+        </div><br>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
-
-            <div id="opcoes" class="flex-colunar padding-8">
-                <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
-                </span>
-                <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
-                </span>
-                <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
-                </span>
-            </div>
-
-            <div id="botoes" class="flex-colunar padding-8">
-                <button onclick="submeter()" id="btnSubmeter">Responder</button>
-                <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
-                <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-            </div>
+        <div id="perguntaDaQuestaoAtual" class="quiz_questao">
+            <span id="spanQuestaoExibida"></span>
         </div>
+
+        <div id="perguntaOpcao" class="quiz_alternativa">
+            <span id="spanEnunciado"></span>
+        </div><br>
+
+        <form>
+            <input type="radio" name="alternativa" value="A" id="optA" required>
+            <label for="optA"></label><br>
+
+            <input type="radio" name="alternativa" value="B" id="optB" required>
+            <label for="optB"></label><br>
+
+            <input type="radio" name="alternativa" value="C" id="optC" required>
+            <label for="optC"></label><br>
+        </form>
+
+
+        <div id="botoes" class="btn_quiz">
+            <button onclick="responder()" id="btnSubmeter">Responder</button>
+            <button onclick="tentarNovamente()" id="btnTentarNovamente" style="display: none;">Tentar novamente</button>
+        </div>
+
     </div>
 
+    <script>
+        const listaDeQuestoes = [
+            {
+                id: 1,
+                pergunta: "Em uma situação de pressão, você prefere…",
+                alternativaA: "Tomar a decisão e organizar o time",
+                alternativaB: "Evitar o erro antes de tudo",
+                alternativaC: "Arriscar e resolver na força"
+            },
+            {
+                id: 2,
+                pergunta: "Qual papel você assume no grupo?",
+                alternativaA: "Quem distribui e articula as ideias",
+                alternativaB: "Quem garante que nada vai errar",
+                alternativaC: "Quem vai na frente e decide na hora H"
+            },
+            {
+                id: 3,
+                pergunta: "Seu superpoder no esporte seria…",
+                alternativaA: "Visão de jogo e leitura da defesa adversária",
+                alternativaB: "Reflexos rápidos e agilidade no chão",
+                alternativaC: "Força e precisão no ataque"
+            },
+            {
+                id: 4,
+                pergunta: "Como você enfrenta um adversário difícil?",
+                alternativaA: "Montando uma estratégia antes de agir",
+                alternativaB: "Neutralizando as jogadas dele uma a uma",
+                alternativaC: "Impondo meu ritmo com agressividade"
+            },
+            {
+                id: 5,
+                pergunta: "O que te dá mais satisfação numa vitória?",
+                alternativaA: "Ter feito a jogada certa na hora certa",
+                alternativaB: "Ter defendido o indefensável",
+                alternativaC: "Ter cravado o ponto decisivo"
+            },
+            {
+                id: 6,
+                pergunta: "Qual ambiente te define mais?",
+                alternativaA: "Sala de reunião: planejando tudo",
+                alternativaB: "Linha de frente: defendendo o campo",
+                alternativaC: "Palco: sendo o centro das atenções"
+            },
+            {
+                id: 7,
+                pergunta: "Como você reage a um erro do time?",
+                alternativaA: "Reajusto o plano imediatamente",
+                alternativaB: "Trabalho o dobro na próxima bola",
+                alternativaC: "Peço a bola e resolvo sozinho"
+            },
+            {
+                id: 8,
+                pergunta: "Qual qualidade é mais sua?",
+                alternativaA: "Inteligência tática",
+                alternativaB: "Consistência e dedicação",
+                alternativaC: "Explosão e potência"
+            },
+            {
+                id: 9,
+                pergunta: "Seu estilo de jogo é mais…",
+                alternativaA: "Calculado e criativo",
+                alternativaB: "Resiliente e disciplinado",
+                alternativaC: "Agressivo e dominante"
+            },
+            {
+                id: 10,
+                pergunta: "O que não pode faltar no seu jogo?",
+                alternativaA: "Sintonia com o time todo",
+                alternativaB: "Concentração total em cada bola",
+                alternativaC: "Confiança na hora do ataque"
+            },
+        ];
 
-</body>
+        const perfil = {
 
-<script>
-    const listaDeQuestoes = [
-        {
-            pergunta: "Em uma situação de pressão, você prefere…",
-            alternativaA: "Tomar a decisão e organizar o time",
-            alternativaB: "Evitar o erro antes de tudo",
-            alternativaC: "Arriscar e resolver na força"
-        },
-        {
-            pergunta: "Qual papel você assume no grupo?",
-            alternativaA: "Quem distribui e articula as ideias",
-            alternativaB: "Quem garante que nada vai errar",
-            alternativaC: "Quem vai na frente e decide na hora H"
-        },
-        {
-            pergunta: "Seu superpoder no esporte seria…",
-            alternativaA: "Visão de jogo e leitura da defesa adversária",
-            alternativaB: "Reflexos rápidos e agilidade no chão",
-            alternativaC: "Força e precisão no ataque"
-        },
-        {
-            pergunta: "Como você enfrenta um adversário difícil?",
-            alternativaA: "Montando uma estratégia antes de agir",
-            alternativaB: "Neutralizando as jogadas dele uma a uma",
-            alternativaC: "Impondo meu ritmo com agressividade"
-        },
-        {
-            pergunta: "O que te dá mais satisfação numa vitória?",
-            alternativaA: "Ter feito a jogada certa na hora certa",
-            alternativaB: "Ter defendido o indefensável",
-            alternativaC: "Ter cravado o ponto decisivo"
-        },
-        {
-            pergunta: "Qual ambiente te define mais?",
-            alternativaA: "Sala de reunião: planejando tudo",
-            alternativaB: "Linha de frente: defendendo o campo",
-            alternativaC: "Palco: sendo o centro das atenções"
-        },
-        {
-            pergunta: "Como você reage a um erro do time?",
-            alternativaA: "Reajusto o plano imediatamente",
-            alternativaB: "Trabalho o dobro na próxima bola",
-            alternativaC: "Peço a bola e resolvo sozinho"
-        },
-        {
-            pergunta: "Qual qualidade é mais sua?",
-            alternativaA: "Inteligência tática",
-            alternativaB: "Consistência e dedicação",
-            alternativaC: "Explosão e potência"
-        },
-        {
-            pergunta: "Seu estilo de jogo é mais…",
-            alternativaA: "Calculado e criativo",
-            alternativaB: "Resiliente e disciplinado",
-            alternativaC: "Agressivo e dominante"
-        },
-        {
-            pergunta: "O que não pode faltar no seu jogo?",
-            alternativaA: "Sintonia com o time todo",
-            alternativaB: "Concentração total em cada bola",
-            alternativaC: "Confiança na hora do ataque"
-        },
-    ];
+            Levantador: {
+                pos: "Levantador",
+                desc: "Você é o cérebro da quadra. Estratégico, comunicativo e sempre atento ao momento certo de cada jogada. O time confia em você para ditar o ritmo."
+            },
+            Libero: {
+                pos: "Líbero",
+                desc: "Você é a última barreira antes do ponto. Resiliente, focado e com reflexos afiados. Nenhuma bola cai enquanto você estiver em quadra."
+            },
+            Oposto: {
+                pos: "Oposto (ACE)",
+                desc: "Você é o jogador decisivo. Potente, confiante e feito para os momentos mais importantes. Quando o jogo aperta, todos olham para você."
+            }
+        };
 
-    const resultados = {
-        alternativaA: {
-            pos: "Levantador",
-            desc: "Você é o cérebro da quadra. Estratégico, comunicativo e sempre atento ao momento certo de cada jogada. O time confia em você para ditar o ritmo."
-        },
-        alternativaB: {
-            pos: "Líbero",
-            desc: "Você é a última barreira antes do ponto. Resiliente, focado e com reflexos afiados. Nenhuma bola cai enquanto você estiver em quadra."
-        },
-        alternativaC: {
-            pos: "Oposto (ACE)",
-            desc: "Você é o jogador decisivo. Potente, confiante e feito para os momentos mais importantes. Quando o jogo aperta, todos olham para você."
+        const respostas = [];
+
+        let resultado;
+        let spanQuestaoExibida = 1;
+        let questaoAtual = 0;
+        let indice = 0;
+        let respostaSelecionada = null;
+
+        function mostrarQuestao() {
+            const questao = listaDeQuestoes[indice];
+
+            document.getElementById('spanNumeroDaQuestaoAtual').textContent = indice + 1;
+            document.getElementById('spanQuestaoExibida').textContent = questao.pergunta;
+
+            document.querySelector("label[for='optA']").textContent = questao.alternativaA;
+            document.querySelector("label[for='optB']").textContent = questao.alternativaB;
+            document.querySelector("label[for='optC']").textContent = questao.alternativaC;
+
+            document.querySelectorAll("input[type='radio']").forEach(r => r.checked = false);
         }
-    };
 
-    function IniciarQuiz() {
-        introducao_quiz.style.display = 'none';
-        perguntas_quiz.style.display = 'block';
-    }
+        function iniciarQuiz() {
+            indice = 0;
+            respostas.length = 0;
+            respostaSelecionada = null;
+            mostrarQuestao();
+        }
 
-    let numeroDaQuestaoAtual = 0
+        function responder() {
+            const selecionado = document.querySelector("input[name='alternativa']:checked");
 
-    function preencherHTMLcomQuestaoAtual(index) {
-        habilitarAlternativas(true)
-        const questaoAtual = listaDeQuestoes[index]
-        numeroDaQuestaoAtual = index
-        console.log("questaoAtual")
-        console.log(questaoAtual)
-        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
-        document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
-        document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
-        document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
-        document.getElementById("labelOpcaoTres").innerHTML = questaoAtual.alternativaC;
-    }
+            if (!selecionado) {
+                alert(`Selecione algum valor`);
+                return;
+            }
 
-    function submeter() {
-        const options = document.getElementsByName("option"); // recupera alternativas no html
+            const valorEscolhido = selecionado.value;
+            respostas.push(valorEscolhido);
+            console.log("Respostas até agora:", respostas);
 
-        let hasChecked = false
-        for (let i = 0; i < options.length; i++) {
-            if (options[i].checked) {
-                hasChecked = true
-                break
+            if (indice < listaDeQuestoes.length - 1) {
+                indice++;
+                mostrarQuestao();
+            } else {
+                calcularResultado();
             }
         }
 
-        if (!hasChecked) {
-            alert("Não há alternativas escolhidas. Escolha uma opção.")
-        } else {
-            btnSubmeter.disabled = true
-            btnProx.disabled = false
+        function calcularResultado() {
+            let i = 0;
+            let qtdA = 0;
+            let qtdB = 0;
+            let qtdC = 0;
 
-            habilitarAlternativas(false)
+            for (i; i < respostas.length; i++) {
+                if (respostas[i] == 'A') qtdA++;
+                else if (respostas[i] == 'B') qtdB++;
+                else if (respostas[i] == 'C') qtdC++;
+            }
 
-            checarResposta()
+            let resultado; 
+
+            if (qtdA >= qtdB && qtdA >= qtdC) {
+                resultado = perfil.Levantador;
+            }
+            else if (qtdB >= qtdA && qtdB >= qtdC) {
+                resultado = perfil.Libero;
+            }
+            else {
+                resultado = perfil.Oposto;
+            }
+
+            console.log("Perfil:", resultado.pos);
+            console.log("Descrição:", resultado.desc);
+
+           
+            fetch("/quiz/update", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    resultadoServer: resultado.pos, 
+                    idUsuarioServer: sessionStorage.ID_USUARIO
+                }),
+            })
+                .then(function (resposta) { 
+                    console.log("resposta: ", resposta);
+                    if (resposta.ok) {
+                        alert("Resultado salvo com sucesso!");
+                    } else {
+                        throw "Houve um erro ao tentar realizar a inserção do resultado do quiz";
+                    }
+                })
+                .catch(function (erro) {
+                    console.log(`#ERRO: ${erro}`);
+                });
         }
-    }
-
-    function habilitarAlternativas(trueOrFalse) {
-        let opcaoEscolhida = trueOrFalse ? false : true
-
-        primeiraOpcao.disabled = opcaoEscolhida
-        segundaOpcao.disabled = opcaoEscolhida
-        terceiraOpcao.disabled = opcaoEscolhida
-    }
-
-    function avancar() {
-        btnProx.disabled = true
-        btnSubmeter.disabled = false
-
-        desmarcarRadioButtons()
-
-        if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
-            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
-            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        } else {
-            finalizarJogo()
-        }
-        limparCoresBackgroundOpcoes()
-    }
-
-    function desmarcarRadioButtons() {
-        const options = document.getElementsByName("option");
-        for (let i = 0; i < options.length; i++) {
-            options[i].checked = false;
-        }
-    }
-
-    function finalizarJogo() {
-        let textoParaMensagemFinal = null
-        let classComCoresParaMensagemFinal = null
-        const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
-
-        if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
-            classComCoresParaMensagemFinal = "text-danger-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
-            classComCoresParaMensagemFinal = "text-warning-with-bg"
-        }
-        else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
-            classComCoresParaMensagemFinal = "text-success-with-bg"
-        }
-
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
-
-
-        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
-        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
-
-        document.getElementById('jogo').classList.add("text-new-gray")
-
-        btnProx.disabled = true
-        btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
-        btnTentarNovamente.disabled = false
-
-    }
-
-</script>
+        mostrarQuestao(indice);
+    </script>

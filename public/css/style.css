@@ -499,3 +499,15 @@ todo conteudo dentro igual)*/
     outline: none;
     appearance: none;
 }
+
+.questao_enunciado {
+    display: flex;
+    flex-direction: column;
+}
+
+.questao_estrutura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
