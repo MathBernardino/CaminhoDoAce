@@ -23,12 +23,12 @@
         </div>
 
         <div class="nav_Bar_h3">
-            <h3>Calculadora</h3>
+            <a href="login.html"><h3>Login</h3></a> 
             <a href="contexto.html"><h3>Contexto</h3></a>
-            <h3>Quiz</h3>
+            <a href="quiz.html"><h3>Quiz</h3></a> 
         </div>
 
-    </div>  
+    </div>
 
     <div id="quiz_inicio" class="quiz_inicio" style="display: block;">
         <h1>O DESPERTAR DO JOGADOR</h1><br><br><br>
@@ -37,8 +37,9 @@
     </div>
 
     <div id="resultado_perfil_quiz" class="resultado_perfil_quiz" style="display: none;">
-        <h1><span id="spanPosicao"></span></h1>
+        <h1>Você é o <span id="spanPosicao"></span>!</h1>
         <h3><span id="spanDescricao"></span></h3>
+        <button onclick="tentarNovamente()" class="btn_tentarDNV">Tentar Novamente</button>
     </div>
 
     <div id="jogo" class="questao_estrutura" style="display: none;">
@@ -69,201 +70,205 @@
 
         <div id="botoes" class="btn_quiz">
             <button class="btnResponder" onclick="responder()" id="btnSubmeter">Responder</button>
-            <button class="btnNovamente" onclick="tentarNovamente()" id="btnTentarNovamente" style="display: none;">Tentar novamente</button>
         </div>
 
     </div>
 </body>
 
-    <script>
-        const listaDeQuestoes = [
-            {
-                id: 1,
-                pergunta: "Em uma situação de pressão, você prefere…",
-                alternativaA: "Tomar a decisão e organizar o time",
-                alternativaB: "Evitar o erro antes de tudo",
-                alternativaC: "Arriscar e resolver na força"
-            },
-            {
-                id: 2,
-                pergunta: "Qual papel você assume no grupo?",
-                alternativaA: "Quem distribui e articula as ideias",
-                alternativaB: "Quem garante que nada vai errar",
-                alternativaC: "Quem vai na frente e decide na hora H"
-            },
-            {
-                id: 3,
-                pergunta: "Seu superpoder no esporte seria…",
-                alternativaA: "Visão de jogo e leitura da defesa adversária",
-                alternativaB: "Reflexos rápidos e agilidade no chão",
-                alternativaC: "Força e precisão no ataque"
-            },
-            {
-                id: 4,
-                pergunta: "Como você enfrenta um adversário difícil?",
-                alternativaA: "Montando uma estratégia antes de agir",
-                alternativaB: "Neutralizando as jogadas dele uma a uma",
-                alternativaC: "Impondo meu ritmo com agressividade"
-            },
-            {
-                id: 5,
-                pergunta: "O que te dá mais satisfação numa vitória?",
-                alternativaA: "Ter feito a jogada certa na hora certa",
-                alternativaB: "Ter defendido o indefensável",
-                alternativaC: "Ter cravado o ponto decisivo"
-            },
-            {
-                id: 6,
-                pergunta: "Qual ambiente te define mais?",
-                alternativaA: "Sala de reunião: planejando tudo",
-                alternativaB: "Linha de frente: defendendo o campo",
-                alternativaC: "Palco: sendo o centro das atenções"
-            },
-            {
-                id: 7,
-                pergunta: "Como você reage a um erro do time?",
-                alternativaA: "Reajusto o plano imediatamente",
-                alternativaB: "Trabalho o dobro na próxima bola",
-                alternativaC: "Peço a bola e resolvo sozinho"
-            },
-            {
-                id: 8,
-                pergunta: "Qual qualidade é mais sua?",
-                alternativaA: "Inteligência tática",
-                alternativaB: "Consistência e dedicação",
-                alternativaC: "Explosão e potência"
-            },
-            {
-                id: 9,
-                pergunta: "Seu estilo de jogo é mais…",
-                alternativaA: "Calculado e criativo",
-                alternativaB: "Resiliente e disciplinado",
-                alternativaC: "Agressivo e dominante"
-            },
-            {
-                id: 10,
-                pergunta: "O que não pode faltar no seu jogo?",
-                alternativaA: "Sintonia com o time todo",
-                alternativaB: "Concentração total em cada bola",
-                alternativaC: "Confiança na hora do ataque"
-            },
-        ];
+<script>
+    const listaDeQuestoes = [
+        {
+            id: 1,
+            pergunta: "Em uma situação de pressão, você prefere…",
+            alternativaA: "Tomar a decisão e organizar o time",
+            alternativaB: "Evitar o erro antes de tudo",
+            alternativaC: "Arriscar e resolver na força"
+        },
+        {
+            id: 2,
+            pergunta: "Qual papel você assume no grupo?",
+            alternativaA: "Quem distribui e articula as ideias",
+            alternativaB: "Quem garante que nada vai errar",
+            alternativaC: "Quem vai na frente e decide na hora H"
+        },
+        {
+            id: 3,
+            pergunta: "Seu superpoder no esporte seria…",
+            alternativaA: "Visão de jogo e leitura da defesa adversária",
+            alternativaB: "Reflexos rápidos e agilidade no chão",
+            alternativaC: "Força e precisão no ataque"
+        },
+        {
+            id: 4,
+            pergunta: "Como você enfrenta um adversário difícil?",
+            alternativaA: "Montando uma estratégia antes de agir",
+            alternativaB: "Neutralizando as jogadas dele uma a uma",
+            alternativaC: "Impondo meu ritmo com agressividade"
+        },
+        {
+            id: 5,
+            pergunta: "O que te dá mais satisfação numa vitória?",
+            alternativaA: "Ter feito a jogada certa na hora certa",
+            alternativaB: "Ter defendido o indefensável",
+            alternativaC: "Ter cravado o ponto decisivo"
+        },
+        {
+            id: 6,
+            pergunta: "Qual ambiente te define mais?",
+            alternativaA: "Sala de reunião: planejando tudo",
+            alternativaB: "Linha de frente: defendendo o campo",
+            alternativaC: "Palco: sendo o centro das atenções"
+        },
+        {
+            id: 7,
+            pergunta: "Como você reage a um erro do time?",
+            alternativaA: "Reajusto o plano imediatamente",
+            alternativaB: "Trabalho o dobro na próxima bola",
+            alternativaC: "Peço a bola e resolvo sozinho"
+        },
+        {
+            id: 8,
+            pergunta: "Qual qualidade é mais sua?",
+            alternativaA: "Inteligência tática",
+            alternativaB: "Consistência e dedicação",
+            alternativaC: "Explosão e potência"
+        },
+        {
+            id: 9,
+            pergunta: "Seu estilo de jogo é mais…",
+            alternativaA: "Calculado e criativo",
+            alternativaB: "Resiliente e disciplinado",
+            alternativaC: "Agressivo e dominante"
+        },
+        {
+            id: 10,
+            pergunta: "O que não pode faltar no seu jogo?",
+            alternativaA: "Sintonia com o time todo",
+            alternativaB: "Concentração total em cada bola",
+            alternativaC: "Confiança na hora do ataque"
+        },
+    ];
 
-        const perfil = {
+    const perfil = {
 
-            Levantador: {
-                pos: "Levantador",
-                desc: "Você é o cérebro da quadra. Estratégico, comunicativo e sempre atento ao momento certo de cada jogada. O time confia em você para ditar o ritmo."
-            },
-            Libero: {
-                pos: "Libero",
-                desc: "Você é a última barreira antes do ponto. Resiliente, focado e com reflexos afiados. Nenhuma bola cai enquanto você estiver em quadra."
-            },
-            Oposto: {
-                pos: "ACE",
-                desc: "Você é o jogador decisivo. Potente, confiante e feito para os momentos mais importantes. Quando o jogo aperta, todos olham para você."
-            }
-        };
+        Levantador: {
+            pos: "Levantador",
+            desc: "Você é o cérebro da quadra. Estratégico, comunicativo e sempre atento ao momento certo de cada jogada. O time confia em você para ditar o ritmo."
+        },
+        Libero: {
+            pos: "Libero",
+            desc: "Você é a última barreira antes do ponto. Resiliente, focado e com reflexos afiados. Nenhuma bola cai enquanto você estiver em quadra."
+        },
+        Oposto: {
+            pos: "ACE",
+            desc: "Você é o jogador decisivo. Potente, confiante e feito para os momentos mais importantes. Quando o jogo aperta, todos olham para você."
+        }
+    };
 
-        const respostas = [];
+    const respostas = [];
+
+    let resultado;
+    let spanQuestaoExibida = 1;
+    let questaoAtual = 0;
+    let indice = 0;
+    let respostaSelecionada = null;
+
+    function IniciarQuiz() {
+        jogo.style.display = 'flex';
+        quiz_inicio.style.display = 'none';
+    }
+
+    function mostrarQuestao() {
+        const questao = listaDeQuestoes[indice];
+
+        document.getElementById('spanNumeroDaQuestaoAtual').textContent = indice + 1;
+        document.getElementById('spanQuestaoExibida').textContent = questao.pergunta;
+
+        document.querySelector("label[for='optA']").textContent = questao.alternativaA;
+        document.querySelector("label[for='optB']").textContent = questao.alternativaB;
+        document.querySelector("label[for='optC']").textContent = questao.alternativaC;
+
+        document.querySelectorAll("input[type='radio']").forEach(r => r.checked = false);
+    }
+
+    function responder() {
+        const selecionado = document.querySelector("input[name='alternativa']:checked");
+
+        if (!selecionado) {
+            alert(`Selecione algum valor`);
+            return;
+        }
+
+        const valorEscolhido = selecionado.value;
+        respostas.push(valorEscolhido);
+        console.log("Respostas até agora:", respostas);
+
+        if (indice < listaDeQuestoes.length - 1) {
+            indice++;
+            mostrarQuestao();
+        } else {
+            calcularResultado();
+        }
+    }
+
+    function calcularResultado() {
+        let i = 0;
+        let qtdA = 0;
+        let qtdB = 0;
+        let qtdC = 0;
+
+        for (i; i < respostas.length; i++) {
+            if (respostas[i] == 'A') qtdA++;
+            else if (respostas[i] == 'B') qtdB++;
+            else if (respostas[i] == 'C') qtdC++;
+        }
 
         let resultado;
-        let spanQuestaoExibida = 1;
-        let questaoAtual = 0;
-        let indice = 0;
-        let respostaSelecionada = null;
-        
-        function IniciarQuiz() {
-            jogo.style.display = 'flex';
-            quiz_inicio.style.display = 'none';
+
+        if (qtdA >= qtdB && qtdA >= qtdC) {
+            resultado = perfil.Levantador;
+        }
+        else if (qtdB >= qtdA && qtdB >= qtdC) {
+            resultado = perfil.Libero;
+        }
+        else {
+            resultado = perfil.Oposto;
         }
 
-        function mostrarQuestao() {
-            const questao = listaDeQuestoes[indice];
+        console.log("Perfil:", resultado.pos);
+        console.log("Descrição:", resultado.desc);
 
-            document.getElementById('spanNumeroDaQuestaoAtual').textContent = indice + 1;
-            document.getElementById('spanQuestaoExibida').textContent = questao.pergunta;
 
-            document.querySelector("label[for='optA']").textContent = questao.alternativaA;
-            document.querySelector("label[for='optB']").textContent = questao.alternativaB;
-            document.querySelector("label[for='optC']").textContent = questao.alternativaC;
+        fetch("/quiz/update", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                resultadoServer: resultado.pos,
+                idUsuarioServer: sessionStorage.getItem("ID_USUARIO")
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+                if (resposta.ok) {
+                    document.getElementById("spanPosicao").textContent = resultado.pos;
+                    document.getElementById("spanDescricao").textContent = resultado.desc;
 
-            document.querySelectorAll("input[type='radio']").forEach(r => r.checked = false);
-        }
-
-        function responder() {
-            const selecionado = document.querySelector("input[name='alternativa']:checked");
-
-            if (!selecionado) {
-                alert(`Selecione algum valor`);
-                return;
-            }
-
-            const valorEscolhido = selecionado.value;
-            respostas.push(valorEscolhido);
-            console.log("Respostas até agora:", respostas);
-
-            if (indice < listaDeQuestoes.length - 1) {
-                indice++;
-                mostrarQuestao();
-            } else {
-                calcularResultado();
-            }
-
-            if (indice == 10) {
-
-            }
-        }
-
-        function calcularResultado() {
-            let i = 0;
-            let qtdA = 0;
-            let qtdB = 0;
-            let qtdC = 0;
-
-            for (i; i < respostas.length; i++) {
-                if (respostas[i] == 'A') qtdA++;
-                else if (respostas[i] == 'B') qtdB++;
-                else if (respostas[i] == 'C') qtdC++;
-            }
-
-            let resultado; 
-
-            if (qtdA >= qtdB && qtdA >= qtdC) {
-                resultado = perfil.Levantador;
-            }
-            else if (qtdB >= qtdA && qtdB >= qtdC) {
-                resultado = perfil.Libero;
-            }
-            else {
-                resultado = perfil.Oposto;
-            }
-
-            console.log("Perfil:", resultado.pos);
-            console.log("Descrição:", resultado.desc);
-
-           
-            fetch("/quiz/update", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    resultadoServer: resultado.pos, 
-                    idUsuarioServer: sessionStorage.getItem("ID_USUARIO")
-                }),
+                    document.getElementById("resultado_perfil_quiz").style.display = 'flex';
+                    document.getElementById("jogo").style.display = 'none';
+                    document.getElementById("quiz_inicio").style.display = 'none';
+                } else {
+                    throw "Houve um erro ao tentar realizar a inserção do resultado do quiz";
+                }
             })
-                .then(function (resposta) { 
-                    console.log("resposta: ", resposta);
-                    if (resposta.ok) {
-                        alert("Resultado salvo com sucesso!");
-                    } else {
-                        throw "Houve um erro ao tentar realizar a inserção do resultado do quiz";
-                    }
-                })
-                .catch(function (erro) {
-                    console.log(`#ERRO: ${erro}`);
-                });
-        }
-        mostrarQuestao(indice);
-    </script>
+            .catch(function (erro) {
+                console.log(`#ERRO: ${erro}`);
+            });
+    }
+    
+    function tentarNovamente(){
+        location.reload();
+    }
+    mostrarQuestao(indice);
+</script>
