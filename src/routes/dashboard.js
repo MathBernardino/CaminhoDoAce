@@ -7,11 +7,11 @@ router.get("/perfis", function (req, res) {
 });
 
 router.get("/usuarios", function (req, res) {
-    dashboardController.contarUsuario(req, res);
+    dashboardController.contarUsuarios(req, res);
 });
 
 router.get("/tentativas", function (req, res) {
-    dashboardControllerr.contarTentativas(req, res);
+    dashboardController.contarTentativas(req, res);
 });
 
 module.exports = router;

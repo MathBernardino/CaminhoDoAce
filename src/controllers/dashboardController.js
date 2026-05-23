@@ -10,14 +10,14 @@ function contarPerfis(req, res) {
 }
 
 
-function totalUsuarios(req, res) {
-  dashboardModel.contarUsuario()
+function contarUsuarios(req, res) {
+  dashboardModel.contarUsuarios()
     .then(resultado => res.json(resultado))
     .catch(erro => res.status(500).json(erro.sqlMessage));
 }
 
 
-function totalTentativas(req, res) {
+function contarTentativas(req, res) {
   dashboardModel.contarTentativas()
     .then(resultado => res.json(resultado))
     .catch(erro => res.status(500).json(erro.sqlMessage));
@@ -27,5 +27,5 @@ function totalTentativas(req, res) {
 module.exports = {
   contarPerfis,
   contarTentativas,
-  contarUsuario
+  contarUsuarios
 }

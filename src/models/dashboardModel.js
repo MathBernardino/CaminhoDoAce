@@ -1,6 +1,6 @@
 var database = require("../database/config");
 
-function contarUsuario(idUsuario) {
+function contarUsuarios(idUsuario) {
 
   var instrucaoSql = `SELECT COUNT(*) AS Usuarios FROM usuario;
   `;
@@ -23,7 +23,7 @@ function contarPerfis() { // Os Perfis no caso são 'Levantador', 'Libero', 'Ace
 
 function contarTentativas() {
 
-  var instrucaoSql = `SELECT COUNT(*) AS tentattivas FROM tentativa;
+  var instrucaoSql = `SELECT COUNT(*) AS tentativas FROM tentativa;
   `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -34,5 +34,5 @@ function contarTentativas() {
 module.exports = {
   contarPerfis,
   contarTentativas,
-  contarUsuario
+  contarUsuarios
 }

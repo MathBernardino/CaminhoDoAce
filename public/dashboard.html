@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminho do Ace</title>
+
+    <script src="./js/sessao.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="./assets/icon/IconBola.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="body_questao">
+
+    <div class="navBar">
+        <div class="navBar_FLY">
+            <a href="index.html"><h1>FLY HIGH</h1></a>
+        </div>
+        <div class="nav_Bar_h3">
+            <a href="dashboard.html"><h3>Dashboard</h3></a> 
+            <a href="contexto.html"><h3>Contexto</h3></a>
+            <h3>Quiz</h3>
+        </div>
+    </div>
+
+    <div class="dash">
+
+        <!-- KPIs -->
+        <div class="kpis">
+            <div class="kpi_card">
+                <span class="kpi_titulo">Total de Usuários</span>
+                <span class="kpi_valor" id="totalUsuarios">-</span>
+            </div>
+            <div class="kpi_card">
+                <span class="kpi_titulo">Quizzes Realizados</span>
+                <span class="kpi_valor" id="totalTentativas">-</span>
+            </div>
+        </div>
+
+        <!-- Gráfico -->
+        <div id="graficos">
+            <div class="grafico_card">
+                <h3 class="tituloGraficos">Distribuição de Perfis</h3>
+                <div class="graph">
+                    <canvas id="graficoPerfis"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    // KPI - Total de usuários
+    fetch("/dashboard/usuarios")
+        .then(res => res.json())
+        .then(data => {
+            console.log("usuarios:", data);
+            document.getElementById("totalUsuarios").textContent = data[0].Usuarios;
+        })
+        .catch(erro => console.error("Erro ao buscar usuários:", erro));
+
+    // KPI - Total de tentativas
+    fetch("/dashboard/tentativas")
+        .then(res => res.json())
+        .then(data => {
+            console.log("tentativas:", data);
+            document.getElementById("totalTentativas").textContent = data[0].tentativas;
+        })
+        .catch(erro => console.error("Erro ao buscar tentativas:", erro));
+
+    // Gráfico de pizza - perfis
+    function obterDadosGrafico() {
+        fetch("/dashboard/perfis")
+            .then(res => res.json())
+            .then(data => {
+                console.log("Dados recebidos:", JSON.stringify(data));
+                plotarGrafico(data);
+            })
+            .catch(erro => console.error("Erro ao buscar perfis:", erro));
+    }
+
+    function plotarGrafico(data) {
+        console.log("Iniciando plotagem do gráfico...");
+
+        const labels = data.map(item => item.perfil);
+        const valores = data.map(item => item.quantidade);
+
+        const dados = {
+            labels: labels,
+            datasets: [{
+                data: valores,
+                backgroundColor: [
+                    "#ff6600",
+                    "#ffffff",
+                    "#555555"
+                ],
+                borderColor: "#1a1a1a",
+                borderWidth: 2
+            }]
+        };
+
+        const config = {
+            type: "pie",
+            data: dados,
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: "white",
+                            font: { size: 14, family: "Outfit" }
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(document.getElementById("graficoPerfis"), config);
+    }
+
+    obterDadosGrafico();
+</script>
+</html>

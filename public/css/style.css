@@ -686,3 +686,68 @@ input[type="radio"]:checked + label {
 .btn_tentarDNV:hover {
     opacity: 0.8;
 }
+
+/* DASHBOARD PAGE */
+
+.dash {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    gap: 40px;
+    font-family: 'Outfit';
+    color: white;
+    background-color: rgb(15, 15, 15);
+    min-height: calc(100vh - 80px);
+}
+
+.kpis {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.kpi_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1a1a1a;
+    border: 2px solid #ff6600;
+    border-radius: 16px;
+    padding: 30px 50px;
+    gap: 10px;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
+}
+
+.kpi_titulo {
+    font-size: 14px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.kpi_valor {
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff6600;
+}
+
+.grafico_card {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.2);
+}
+
+.tituloGraficos {
+    color: #ff6600;
+    margin-bottom: 20px;
+}
+
+#graficoPerfis {
+    max-width: 350px;
+    margin: auto;
+}
