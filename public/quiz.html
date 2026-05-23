@@ -28,13 +28,24 @@
             <h3>Quiz</h3>
         </div>
 
+    </div>  
+
+    <div id="quiz_inicio" class="quiz_inicio" style="display: block;">
+        <h1>O DESPERTAR DO JOGADOR</h1><br><br><br>
+
+        <button class="btnIniciar" onclick="IniciarQuiz()">Iniciar o Quiz</button>
     </div>
 
-    <div id="jogo" class="questao_estrutura">
+    <div id="resultado_perfil_quiz" class="resultado_perfil_quiz" style="display: none;">
+        <h1><span id="spanPosicao"></span></h1>
+        <h3><span id="spanDescricao"></span></h3>
+    </div>
+
+    <div id="jogo" class="questao_estrutura" style="display: none;">
 
         <div id="infoQuestao" class="questao_enunciado">
             <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de 10 questões.</span>
-        </div><br>
+        </div>
 
         <div id="perguntaDaQuestaoAtual" class="quiz_questao">
             <span id="spanQuestaoExibida"></span>
@@ -46,22 +57,23 @@
 
         <form>
             <input type="radio" name="alternativa" value="A" id="optA" required>
-            <label for="optA"></label><br>
+            <label for="optA"></label>
 
             <input type="radio" name="alternativa" value="B" id="optB" required>
-            <label for="optB"></label><br>
+            <label for="optB"></label>
 
             <input type="radio" name="alternativa" value="C" id="optC" required>
-            <label for="optC"></label><br>
+            <label for="optC"></label>
         </form>
 
 
         <div id="botoes" class="btn_quiz">
-            <button onclick="responder()" id="btnSubmeter">Responder</button>
-            <button onclick="tentarNovamente()" id="btnTentarNovamente" style="display: none;">Tentar novamente</button>
+            <button class="btnResponder" onclick="responder()" id="btnSubmeter">Responder</button>
+            <button class="btnNovamente" onclick="tentarNovamente()" id="btnTentarNovamente" style="display: none;">Tentar novamente</button>
         </div>
 
     </div>
+</body>
 
     <script>
         const listaDeQuestoes = [
@@ -160,6 +172,11 @@
         let questaoAtual = 0;
         let indice = 0;
         let respostaSelecionada = null;
+        
+        function IniciarQuiz() {
+            jogo.style.display = 'flex';
+            quiz_inicio.style.display = 'none';
+        }
 
         function mostrarQuestao() {
             const questao = listaDeQuestoes[indice];
@@ -172,13 +189,6 @@
             document.querySelector("label[for='optC']").textContent = questao.alternativaC;
 
             document.querySelectorAll("input[type='radio']").forEach(r => r.checked = false);
-        }
-
-        function iniciarQuiz() {
-            indice = 0;
-            respostas.length = 0;
-            respostaSelecionada = null;
-            mostrarQuestao();
         }
 
         function responder() {
@@ -198,6 +208,10 @@
                 mostrarQuestao();
             } else {
                 calcularResultado();
+            }
+
+            if (indice == 10) {
+
             }
         }
 

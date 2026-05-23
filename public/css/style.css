@@ -500,8 +500,50 @@ todo conteudo dentro igual)*/
     appearance: none;
 }
 
+/* QuizPage*/
+
+/* Centraliza o card na tela */
+
+/* Card principal
+.questao_estrutura {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    padding: 40px;
+    width: 600px;
+    gap: 20px;
+} */
+
+/* Botão responder */
+/* #btnSubmeter {
+    padding: 12px 32px;
+    background-color: #ff6600;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+} */
+
+
+
+
+---------------------------------------
 .questao_enunciado {
     font-size: 20px;
+    align-self: flex-start;
+}
+
+.body_questao {
+    display: flex;
+    flex-direction: column; /* ← empilha navbar em cima, card embaixo */
+    min-height: 100vh;
+    font-family: 'Outfit';
+    background-color: rgb(15, 15, 15);
 }
 
 .questao_estrutura {
@@ -511,19 +553,95 @@ todo conteudo dentro igual)*/
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 80vh;
     width: 50%;
+    padding: 7%;
     border-radius: 5%;
     box-shadow: 0 0 25px rgba(255, 136, 0, 0.25);
+    margin: auto; 
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.body_questao {
-    font-family: 'Outfit';
-    background-color: rgb(15, 15, 15);
+.quiz_questao span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff6600;
+    text-align: center;
+}
+
+form {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    width: 100%;
 }
 
-.quiz_questao {
-    font-size: 30px;
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: block;
+    padding: 14px 20px;
+    border: 2px solid #ff6600;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+label:hover {
+    background-color: #ff6600;
+    color: black;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #ff6600;
+    color: black;
+    font-weight: bold;
+}
+
+#btnSubmeter:hover {
+    opacity: 0.8;
+}
+
+.btnResponder, .btnIniciar {
+    font-family: 'Outfit';
+    font-size: 22px;
+    border: none;
+    background-color: #ff6600;
+    color: black;
+    padding: 16px;
+    gap: 30px;
+    margin: 20px;
+    height: 60px;
+    width: 230px;
+    border-radius: 15px;
+}
+
+.quiz_inicio {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    padding: 5%;
+    border-radius: 5%;
+    box-shadow: 0 0 25px rgba(255, 136, 0, 0.25);
+    margin: auto; 
+}
+
+.quiz_inicio h1 {
+    font-size: 40px;
+    color: #ff6600;
+}
+
+.quiz_inicio h3 {
+    font-size: 15px;
+}
+
+.btnIniciar:hover {
+    opacity: 0.8;
 }
