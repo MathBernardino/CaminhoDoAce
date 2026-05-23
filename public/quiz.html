@@ -238,7 +238,7 @@
                 },
                 body: JSON.stringify({
                     resultadoServer: resultado.pos, 
-                    idUsuarioServer: sessionStorage.ID_USUARIO
+                    idUsuarioServer: sessionStorage.getItem("ID_USUARIO")
                 }),
             })
                 .then(function (resposta) { 
