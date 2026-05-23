@@ -17,18 +17,33 @@
 
 <body class="body_cadastro">
   <!--header inicio-->
-    <div class="navBar">
-        <div class="navBar_FLY">
-            <a href="index.html"><h1>FLY HIGH</h1></a>
-        </div>
-
-        <div class="nav_Bar_h3">
-            <a href="login.html"><h3>Login</h3></a> 
-            <a href="contexto.html"><h3>Contexto</h3></a>
-            <a href="quiz.html"><h3>Quiz</h3></a> 
-        </div>
+  <div class="navBar">
+    <div class="navBar_FLY">
+      <a href="index.html">
+        <h1>FLY HIGH</h1>
+      </a>
     </div>
+
+    <div class="nav_Bar_h3">
+      <a href="login.html">
+        <h3>Login</h3>
+      </a>
+      <a href="contexto.html">
+        <h3>Contexto</h3>
+      </a>
+      <a href="quiz.html">
+        <h3>Quiz</h3>
+      </a>
+    </div>
+  </div>
   <!--header fim-->
+
+  <div id="alertCustom" class="alert_custom" style="display: none;">
+    <div class="alert_card">
+      <span id="alertMensagem"></span>
+      <button class="alert_btn" onclick="fecharAlert()">OK</button>
+    </div>
+  </div>
 
   <div class="cadastro">
     <div class="alerta_erro">
@@ -59,7 +74,8 @@
           <span>Confirmação da Senha:</span>
           <input id="confirmacao_senha_input" type="password" placeholder="******" />
         </div>
-        <label style="color: white">Já possui conta?<a href="login.html" style="text-decoration: none; color: inherit;"><span class="destaque">Entrar</span></a></label>
+        <label style="color: white">Já possui conta?<a href="login.html"
+            style="text-decoration: none; color: inherit;"><span class="destaque">Entrar</span></a></label>
         <button class="btnEntrar" onclick="cadastrar()">Cadastrar</button>
         <div id="div_erros_login" class="mensagem_erro"></div>
       </div>
@@ -95,9 +111,8 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      alertMensagem.style.display = "block";
+      mostrarAlert("ERRO: Possui Campos em branco!");
 
       finalizarAguardar();
       return false;
@@ -124,7 +139,7 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          alert(`Cadastro realizado com Sucesso! ${nomeVar}`)
+          mostrarAlert(`Cadastro realizado com Sucesso! ${nomeVar}`);
 
           setTimeout(() => {
             window.location = "login.html";
@@ -133,7 +148,7 @@
           limparFormulario();
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          throw mostrarAlert("Ocorreu um erro de cadastro!");;
         }
       })
       .catch(function (resposta) {
@@ -142,9 +157,5 @@
       });
 
     return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
   }
 </script>

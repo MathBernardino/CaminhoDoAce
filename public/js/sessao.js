@@ -17,14 +17,12 @@ function limparSessao() {
     window.location = "../login.html";
 }
 
-function finalizarAguardar(texto) {
-    var divAguardar = document.getElementById("div_aguardar");
-    divAguardar.style.display = "none";
+function mostrarAlert(mensagem) {
+    document.getElementById("alertMensagem").textContent = mensagem;
+    document.getElementById("alertCustom").style.display = "flex";
+}
 
-    var divErrosLogin = document.getElementById("div_erros_login");
-    if (texto) {
-        divErrosLogin.style.display = "flex";
-        divErrosLogin.innerHTML = texto;
-    }
+function fecharAlert() {
+    document.getElementById("alertCustom").style.display = "none";
 }
 
