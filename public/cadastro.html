@@ -111,12 +111,24 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
+
       alertMensagem.style.display = "block";
       mostrarAlert("ERRO: Possui Campos em branco!");
 
-      finalizarAguardar();
-      return false;
-    } else {
+    } else if (nomeVar.length < 3) {
+      alertMensagem.style.display = "block";
+      mostrarAlert("ERRO: Seu nome deve conter mais de 2 caracteres!");
+
+    } else if (!emailVar.includes("@")) {
+      alertMensagem.style.display = "block";
+      mostrarAlert("ERRO: Seu email deve conter @");
+
+    } else if (senhaVar.length < 6) {
+      alertMensagem.style.display = "block";
+      mostrarAlert("ERRO: Sua senha deve conter mais de 5 caracteres!");
+
+    }
+    else {
       setInterval(sumirMensagem, 5000);
     }
 
