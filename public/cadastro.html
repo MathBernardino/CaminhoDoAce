@@ -25,8 +25,8 @@
     </div>
 
     <div class="nav_Bar_h3">
-      <a href="login.html">
-        <h3>Login</h3>
+      <a href="tutorial.html">
+        <h3>Objetivo</h3>
       </a>
       <a href="contexto.html">
         <h3>Contexto</h3>
@@ -38,19 +38,8 @@
   </div>
   <!--header fim-->
 
-  <div id="alertCustom" class="alert_custom" style="display: none;">
-    <div class="alert_card">
-      <span id="alertMensagem"></span>
-      <button class="alert_btn" onclick="fecharAlert()">OK</button>
-    </div>
-  </div>
-
   <div class="cadastro">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
-    </div>
+
     <div class="cardCadastro">
       <h2>Se junte a nós!</h2>
       <div class="formulario">
@@ -84,6 +73,7 @@
     <div class="background_cadastro"></div>
   </div>
 
+
 </body>
 
 </html>
@@ -103,6 +93,7 @@
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     var idUsuarioVincular
+    var divErros = document.getElementById("div_erros_login");
 
     // Verificando se há algum campo em branco
     if (
@@ -112,24 +103,20 @@
       confirmacaoSenhaVar == ""
     ) {
 
-      alertMensagem.style.display = "block";
-      mostrarAlert("ERRO: Possui Campos em branco!");
+      divErros.style.display = "flex";
+      divErros.innerHTML = "Preencha todos os campos!";
 
     } else if (nomeVar.length < 3) {
-      alertMensagem.style.display = "block";
-      mostrarAlert("ERRO: Seu nome deve conter mais de 2 caracteres!");
+      divErros.style.display = "flex";
+      divErros.innerHTML = "Seu nome deve ter no minimo 3 caracteres!";
 
     } else if (!emailVar.includes("@")) {
-      alertMensagem.style.display = "block";
-      mostrarAlert("ERRO: Seu email deve conter @");
+      divErros.style.display = "flex";
+      divErros.innerHTML = "Seu Email deve conter um @ aliado ao seu provedor!";
 
     } else if (senhaVar.length < 6) {
-      alertMensagem.style.display = "block";
-      mostrarAlert("ERRO: Sua senha deve conter mais de 5 caracteres!");
-
-    }
-    else {
-      setInterval(sumirMensagem, 5000);
+      divErros.style.display = "flex";
+      divErros.innerHTML = "Sua senha deve conter mais de 5 caracteres!";
     }
 
     // Enviando o valor da nova input
@@ -148,24 +135,20 @@
       }),
     })
       .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
         if (resposta.ok) {
-          mostrarAlert(`Cadastro realizado com Sucesso! ${nomeVar}`);
+          divErros.style.display = "flex";
+          divErros.innerHTML = "Cadastro realizado com sucesso!";
 
           setTimeout(() => {
             window.location = "login.html";
-          }, "5000");
-
-          limparFormulario();
-          finalizarAguardar();
+          }, "2000");
         } else {
-          throw mostrarAlert("Ocorreu um erro de cadastro!");;
+          throw divErros.style.display = "flex";
+          divErros.innerHTML = "Houve um erro no login!";;
         }
       })
       .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+
       });
 
     return false;

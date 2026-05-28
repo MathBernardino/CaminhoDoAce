@@ -32,8 +32,8 @@
         </div>
 
         <div class="nav_Bar_h3">
-            <a href="login.html">
-                <h3>Login</h3>
+            <a href="tutorial.html">
+                <h3>Objetivo</h3>
             </a>
             <a href="contexto.html">
                 <h3>Contexto</h3>
@@ -76,9 +76,9 @@
     function entrar() {
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
+        var divErros = document.getElementById("div_erros_login");
 
         if (emailVar == "" || senhaVar == "") {
-            var divErros = document.getElementById("div_erros_login");
             divErros.style.display = "flex";
             divErros.innerHTML = "Preencha todos os campos!";
             return false;
@@ -100,19 +100,20 @@
                         sessionStorage.EMAIL_USUARIO = json.email;
                         sessionStorage.NOME_USUARIO = json.nome;
                         sessionStorage.ID_USUARIO = json.id;
-                        
-                        alertCustom.style.display = 'flex';
+
+                        divErros.style.display = "flex";
+                        divErros.innerHTML = "Login Realizado com Sucesso!";
                         setTimeout(function () {
                             window.location = "/contexto.html";
                         }, 2000);
                     });
                 } else {
                     resposta.text().then(texto => {
-                        console.error("ERRO RESPOSTA:", texto); // ← e isso
+                        console.error("ERRO RESPOSTA:", texto);
                     });
                 }
             }).catch(function (erro) {
-                console.log("CATCH ERRO:", erro); // ← e isso
+                console.log("CATCH ERRO:", erro);
             })
 
         }
